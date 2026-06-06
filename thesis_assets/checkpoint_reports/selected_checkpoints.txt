@@ -1,0 +1,3 @@
+Best scan-trained checkpoint: ./checkpoints/retinanet_epoch10.pth
+Best mobile fine-tuned checkpoint: ./checkpoints_mobile_finetune/retinanet_epoch6.pth
+Training-returned mobile fine-tune checkpoint: ./checkpoints_mobile_finetune/retinanet_best.pth

@@ -1,0 +1,7 @@
+image_path,num_gt,baseline_tp,baseline_fp,baseline_fn,finetuned_tp,finetuned_fp,finetuned_fn,tp_gain,fn_reduction,fp_change
+./mobile_images/IMG_3674.jpg,19,0,4,19,2,59,17,2,2,55
+./mobile_images/IMG_3695.jpg,3,1,1,2,3,48,0,2,2,47
+./mobile_images/IMG_3700.jpg,1,0,3,1,1,23,0,1,1,20
+./mobile_images/IMG_3680.jpg,2,2,12,0,2,45,0,0,0,33
+./mobile_images/IMG_3682.jpg,2,2,17,0,2,50,0,0,0,33
+./mobile_images/IMG_3683.jpg,2,2,13,0,2,43,0,0,0,30
