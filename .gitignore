@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# Model checkpoints and training artifacts
+checkpoints/
+checkpoints_mobile_finetune/
+*.pth
+
+# Generated datasets, extracted pages, and large local assets
+all_pages/
+fullbook/
+sampled_pages/
+sampled_test/
+unused_pages/
+mobile_candidates/
+mobile_train_candidates/
+mobile_images/
+mobile_train_set/
+corrupted_test_sets/
+inference/
+thesis_assets/
+
+# Archives
+*.zip
+
