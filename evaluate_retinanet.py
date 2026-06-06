@@ -1,6 +1,6 @@
 # evaluate_retinanet.py
 """
-Evaluation + error analysis for your RetinaNet bracelet detector.
+Evaluation and error analysis for the RetinaNet bracelet detector.
 
 Key entry point: evaluate_model(...)
 """
@@ -30,7 +30,7 @@ def _size_category(area_ratio: float) -> str:
     - small  : < 1% of page
     - medium : 1–5%
     - large  : >= 5%
-    Adjust thresholds if you like.
+    Thresholds can be adjusted for different object-scale definitions.
     """
     if area_ratio < 0.01:
         return "small"
@@ -261,7 +261,7 @@ def _compute_pr_metrics(
 def _run_coco_eval(test_ann_path: str, results: List[Dict[str, Any]]) -> Dict[str, float]:
     """
     Builds a COCO-style detections list and runs COCOeval.
-    Uses all predictions you kept (so set score_thresh_for_metrics appropriately).
+    Uses all retained predictions, so score_thresh_for_metrics should be set appropriately.
     """
     coco_gt = COCO(test_ann_path)
 
@@ -348,7 +348,7 @@ def evaluate_model(
     model = runner.model
     model.eval()
 
-    # 2) Test dataset / loader (reuses your deterministic COCO dataset)
+    # 2) Test dataset / loader using the deterministic COCO dataset
     test_ds = CocoDetectionSingleClass(test_img_dir, test_ann_path)
     test_loader = DataLoader(
         test_ds,
@@ -504,7 +504,7 @@ def plot_image_with_detections(
 def show_worst_images(df_per_image: pd.DataFrame, top_k: int = 10) -> pd.DataFrame:
     """
     Quick listing of pages with most FNs / highest miss-rate.
-    You can then loop over these rows and call plot_image_with_detections.
+    The returned rows can be passed to plot_image_with_detections.
     """
     if df_per_image.empty:
         return df_per_image

@@ -95,7 +95,7 @@ class RetinaNetBracelets:
       - Uses ImageNet weights for the backbone (avoids COCO num_classes lock).
       - Works with both torchvision v2 model and legacy v1 fallback.
       - Single foreground class: set num_classes to 2 (background + bracelet) for compatibility
-        with your previous working script.
+        with the original training script.
     """
 
     def __init__(
@@ -150,7 +150,7 @@ class RetinaNetBracelets:
     # --------------- Model ----------------
     def build_model(self, num_classes: int = 2, freeze_backbone: bool = False):
         """
-        num_classes default = 2 (background + 1 class) to match your prior script.
+        num_classes default = 2 (background + 1 foreground class) to match the original training setup.
         """
         weights_backbone = ResNet50_Weights.IMAGENET1K_V2
 
@@ -341,5 +341,4 @@ class RetinaNetBracelets:
             _json.dump(all_results, f)
         print(f"Done. Saved detections for {len(all_imgs)} images to {out_json}"
               + (f" and overlays to {out_vis_dir}" if out_vis_dir else ""))
-
 
